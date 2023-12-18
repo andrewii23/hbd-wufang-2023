@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <title>Happy Birthday 🎁🎂</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader" class="loader loader--animate">
+      <div class="loader__inner">
+        <div class="loader__wrap">
+          <div class="loader__box">
+            <div>H</div>
+            <div>B</div>
+            <div>D</div>
+            <div>🥳</div>
+            <div>🎂</div>
+            <div>🎁</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="main">
+      <div class="container">
+        <section id="hero" class="sc">
+          <h1 class="title">
+            <span class="emoji">🎉</span>
+            <a href="wufang.html">吴芳</a>，生日快乐，<br />
+            <a class="lovely">我可爱的</a>
+            <span class="emoji">😳</span>女朋友！<br />
+            愿你永远快乐
+            <span class="emoji">💌</span>
+          </h1>
+
+          <div class="lovely-container">
+            <div class="lovely-cards invisible">
+              <div class="close">CLOSE</div>
+              <div class="card c1">
+                <img src="./assets/img/lovely-1.jpg" alt="Random Image" />
+              </div>
+              <div class="card c2">
+                <img src="./assets/img/lovely-2.jpg" alt="Random Image" />
+              </div>
+              <div class="card c3">
+                <img src="./assets/img/lovely-3.jpg" alt="Random Image" />
+              </div>
+              <div class="card c4">
+                <img src="./assets/img/lovely-4.jpg" alt="Random Image" />
+              </div>
+              <div class="card c5">
+                <img src="./assets/img/lovely-5.jpg" alt="Random Image" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="page2" class="sc">
+          <span class="block">
+            <h2 class="dear sc">🥰 Dear Wu Fang,</h2>
+          </span>
+          <h1 class="sc">
+            On this special day, I want to wish you a happy birthday! You are
+            the sunshine in my life, making each day brighter. May the coming
+            year bring you more laughter, warmth, and happiness. ☀️
+            <br />
+            I am grateful to have such a lovely, gentle, and kind girlfriend.
+            Your smile is my greatest joy, and on this special day, I hope you
+            feel the depth of my love for you. ☺️
+            <br />
+            Wishing your life to be filled with beautiful moments and may every
+            dream come true. Happy birthday, my love! May our future be filled
+            with more laughter and beautiful moments together. ❤️
+            <br />
+            I wish you happiness, eternal happiness! ✿
+          </h1>
+        </section>
+
+        <section id="page3">
+          <div class="girl mono">
+            <img src="/assets/img/girl.png" alt="" />
+            <p>快乐不在于拥有多少，</p>
+            <p>而是在于珍惜当下的每一个美好瞬间，</p>
+            <p>让爱与喜悦编织成幸福的生活。</p>
+          </div>
+
+          <div id="img1" class="img"></div>
+          <div id="img2" class="img"></div>
+          <div id="img3" class="img"></div>
+          <div id="img4" class="img"></div>
+          <div id="img5" class="img"></div>
+          <div id="img6" class="img"></div>
+        </section>
+
+        <section id="page4">
+          <div class="pin-unlock">
+            <div class="paper-con sc">Happy Birthday 🎊</div>
+            <div class="paper-title sc">Unlock to read 👀</div>
+            <div class="pin-input" id="pinContainer">
+              <input
+                type="text"
+                maxlength="1"
+                id="pin1"
+                oninput="handleInput(1)"
+              />
+              <input
+                type="text"
+                maxlength="1"
+                id="pin2"
+                oninput="handleInput(2)"
+              />
+              <input
+                type="text"
+                maxlength="1"
+                id="pin3"
+                oninput="handleInput(3)"
+              />
+              <input
+                type="text"
+                maxlength="1"
+                id="pin4"
+                oninput="handleInput(4)"
+              />
+            </div>
+
+            <button id="submitButton" onclick="checkPassword()">
+              <span>💌</span>Unlock
+            </button>
+          </div>
+
+          <div class="letter" id="secretLetter">
+            <div class="paper">
+              <div id="letterOne">
+                <img
+                  class="message"
+                  src="./assets/img/letters/letter-page-1.png"
+                  alt=""
+                />
+              </div>
+              <div id="letterTwo" class="letter-animate">
+                <img
+                  class="message"
+                  src="./assets/img/letters/letter-page-2.png"
+                  alt=""
+                />
+              </div>
+              <div id="letterThree" class="letter-animate">
+                <img
+                  class="message"
+                  src="./assets/img/letters/letter-page-3.png"
+                  alt=""
+                />
+              </div>
+              <img
+                src="./assets/img/deco/rose.png"
+                alt="deco"
+                class="deco rose"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="page5">
+          <div class="recorder">
+            <div class="play-pause sc">
+              🎹 Click to play or pause the music 🎵
+            </div>
+
+            <div class="alb">
+              <img
+                src="./assets/img/profile.png"
+                alt="WuFang"
+                class="alb-cover"
+              />
+              <div class="alb-cd">
+                <img src="./assets/img/reCD.svg" alt="cd" class="cd" />
+              </div>
+            </div>
+          </div>
+          <audio id="audioPlayer" loop autoplay>
+            <source
+              src="./assets/song/lee hi  only  sped up.mp3"
+              type="audio/mp3"
+            />
+            Your browser does not support the audio tag.
+          </audio>
+        </section>
+      </div>
+
+      <svg>
+        <filter id="noiseFilter">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.6"
+            stitchTiles="stitch"
+          />
+        </filter>
+      </svg>
+
+      <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
+        integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script src="/script/script.js"></script>
+    </div>
+  </body>
+</html>

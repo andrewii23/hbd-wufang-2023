@@ -32,6 +32,15 @@ body {
     scroll-behavior: smooth;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #main {
     position: relative;
     overflow: hidden;
@@ -212,35 +221,35 @@ a:hover {
 }
 
 #img1 {
-    background-image: url(/assets/img/1.jpg);
+    background-image: url(/assets/img/1.webp);
 }
 
 #img2 {
-    background-image: url(/assets/img/2.jpg);
+    background-image: url(/assets/img/2.webp);
     top: 60%;
     left: 5%;
 }
 
 #img3 {
-    background-image: url(/assets/img/3.jpg);
+    background-image: url(/assets/img/3.webp);
     top: 110%;
     left: 10%;
 }
 
 #img4 {
-    background-image: url(/assets/img/4.jpg);
+    background-image: url(/assets/img/4.webp);
     top: 10%;
     left: 75%;
 }
 
 #img5 {
-    background-image: url(/assets/img/7.jpg);
+    background-image: url(/assets/img/5.webp);
     top: 90%;
     left: 65%;
 }
 
 #img6 {
-    background-image: url(/assets/img/8.jpg);
+    background-image: url(/assets/img/6.webp);
     top: 120%;
     left: 70%;
 }

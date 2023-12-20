@@ -1,50 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Call the preloadResources function when the DOM is ready
-  preloadResources();
-});
+  var loader = document.getElementById("loader");
+  loader.style.display = "none";
 
-function preloadResources() {
-  // List of resource URLs to preload
-  var resourceUrls = [
-    "./assets/img/lovely-1.jpg",
-    "./assets/img/lovely-2.jpg",
-    "./assets/img/lovely-3.jpg",
-    // Add more resource URLs as needed
-  ];
+  var lazyImages = document.querySelectorAll('img[loading="lazy"]');
 
-  // Counter to track the number of loaded resources
-  var loadedResources = 0;
+  if ("IntersectionObserver" in window) {
+    var lazyImageObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var lazyImage = entry.target;
+          lazyImage.src = lazyImage.dataset.src;
+          lazyImage.removeAttribute("loading");
+          lazyImageObserver.unobserve(lazyImage);
+        }
+      });
+    });
 
-  // Function to handle resource loading
-  function resourceLoaded() {
-    loadedResources++;
-
-    // Check if all resources are loaded
-    if (loadedResources === resourceUrls.length) {
-      // All resources are loaded, hide the loader and show the content
-      document.querySelector(".loader").style.display = "none";
-      document.querySelector("#main").style.display = "block";
-    }
+    lazyImages.forEach(function (lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  } else {
+    // Fallback for browsers that do not support IntersectionObserver
+    lazyImages.forEach(function (lazyImage) {
+      lazyImage.src = lazyImage.dataset.src;
+      lazyImage.removeAttribute("loading");
+    });
   }
-
-  // Loop through each resource URL and preload it
-  resourceUrls.forEach(function (url) {
-    var resource;
-
-    if (url.endsWith(".jpg") || url.endsWith(".png")) {
-      // For image resources
-      resource = new Image();
-      resource.src = url;
-    } else if (url.endsWith(".js")) {
-      // For JavaScript resources
-      resource = document.createElement("script");
-      resource.src = url;
-    }
-
-    // Handle the 'load' event for each resource
-    resource.addEventListener("load", resourceLoaded);
-  });
-}
+});
 
 function loco() {
   gsap.registerPlugin(ScrollTrigger);
@@ -145,12 +127,17 @@ tl.from(".container", {
   y: 50,
 });
 
+// Check if the device is a desktop
+function isDesktop() {
+  return window.innerWidth >= 1024; // Adjust the threshold as needed
+}
+
 let tl1 = gsap.timeline({
   scrollTrigger: {
     trigger: "#page3",
     start: "50% 50%",
     end: "100% 50%",
-    pin: true,
+    pin: isDesktop(),
     scroller: "#main",
     scrub: 0.5,
     // markers: true,

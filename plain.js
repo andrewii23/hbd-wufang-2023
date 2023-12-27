@@ -1,13 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Hide loader
-  var loader = document.getElementById("loader");
-  loader.style.display = "none";
-
-  // Show lovely cards
   var lovelyCards = document.querySelector(".lovely-cards");
   lovelyCards.classList.remove("invisible");
 
-  // Audio player functionality
   const audioPlayer = document.getElementById("audioPlayer");
 
   // Set the default volume to 50%

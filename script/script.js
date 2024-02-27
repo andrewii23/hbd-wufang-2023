@@ -1,7 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Hide loader
-  var loader = document.getElementById("loader");
-  loader.style.display = "none";
+  // Function to hide the loader
+  function hideLoader() {
+    var loader = document.getElementById("loader");
+    loader.style.display = "none";
+  }
+
+  // Show loader until all resources have loaded
+  window.onload = function () {
+    hideLoader(); // Hide loader once all resources have loaded
+  };
 
   // Show lovely cards
   var lovelyCards = document.querySelector(".lovely-cards");
@@ -33,22 +40,18 @@ document.addEventListener("DOMContentLoaded", function () {
 function loco() {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true,
   });
-  // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
   locoScroll.on("scroll", ScrollTrigger.update);
 
-  // tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
   ScrollTrigger.scrollerProxy("#main", {
     scrollTop(value) {
       return arguments.length
         ? locoScroll.scrollTo(value, 0, 0)
         : locoScroll.scroll.instance.scroll.y;
-    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+    },
     getBoundingClientRect() {
       return {
         top: 0,
@@ -57,7 +60,6 @@ function loco() {
         height: window.innerHeight,
       };
     },
-    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
     pinType: document.querySelector("#main").style.transform
       ? "transform"
       : "fixed",
